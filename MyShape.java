@@ -113,6 +113,33 @@ abstract class MyShape
        return myColor;
     }
     
+    //Calculate the correct coordinates
+    public int[] coordinates(){
+       int coorX1, coorX2, coorY1,coorY2;
+       
+       if ((getX2() - getX1()) >= 0){
+           coorX2 = getX2() - getX1();
+           coorX1 = getX1();
+       }
+       else{
+           coorX2 = getX1() - getX2();
+           coorX1 = getX2();
+       }
+       
+       if ((getY2() - getY1()) >= 0){
+           coorY2 = getY2() - getY1();
+           coorY1 = getY1();
+       }
+       else{
+           coorY2 = getY1() - getY2();
+           coorY1 = getY2();
+       }
+       
+       int[] coordinates = {coorX1,coorY1,coorX2,coorY2};
+       return coordinates;
+       
+       
+    }
     
     public abstract void draw( Graphics g );
     //Abstract Draw method, no body. MyShape draw method.

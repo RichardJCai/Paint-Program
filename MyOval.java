@@ -27,13 +27,15 @@ public class MyOval extends MyBoundedShape
     //Draws the actual oval, calls super.getFill() to retrieve fill value
     public void draw( Graphics g )
     {
-        //Determines if the shape is filled
+        int[] coordinates = super.coordinates();
+        
         g.setColor( super.getColor() );
         if (super.getFill() == true){
-          g.fillOval( super.getX1(), super.getY1(), super.getX2() - super.getX1(), super.getY2() - super.getY1());
+          g.fillOval(coordinates[0], coordinates[1],coordinates[2], coordinates[3]);
         }
         else {
-            g.drawOval( super.getX1(), super.getY1(), super.getX2()- super.getX1(), super.getY2()- super.getY1());
+            g.drawOval(coordinates[0], coordinates[1],coordinates[2], coordinates[3]);
         }
+        
     } // end method draw
 }

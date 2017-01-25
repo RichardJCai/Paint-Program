@@ -27,13 +27,14 @@ public class MyRectangle extends MyBoundedShape
     //Draws the actual rectangle, calls super.getFill() to retrieve fill value
     public void draw( Graphics g )
     {
+        int[] coordinates = super.coordinates();
         //Determines if filled or not
         g.setColor( super.getColor() );
         if (super.getFill() == true){
-          g.fillRect( super.getX1(), super.getY1(), super.getX2()- super.getX1(), super.getY2()-super.getY1() );
+          g.fillRect(coordinates[0], coordinates[1],coordinates[2], coordinates[3]);
         }
         else {
-            g.drawRect( super.getX1(), super.getY1(), super.getX2()-super.getX1(), super.getY2()-super.getY1() );
+            g.drawRect(coordinates[0], coordinates[1],coordinates[2], coordinates[3]);
         }
         
     } // end method draw
